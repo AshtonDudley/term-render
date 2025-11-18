@@ -1,3 +1,0 @@
-/home/ashton/projects/term-render/build/CMakeFiles/term-render.dir
-/home/ashton/projects/term-render/build/CMakeFiles/edit_cache.dir
-/home/ashton/projects/term-render/build/CMakeFiles/rebuild_cache.dir
