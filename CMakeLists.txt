@@ -18,6 +18,8 @@ include_directories(${PROJECT_SOURCE_DIR}/inc)
 # Add executable from source files
 add_executable(${PROJECT_NAME}
     src/main.cpp
+    src/Framebuffer.cpp
+    src/Renderer.cpp
 )
 
 # If you have tests, enable testing and add them

@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/ashton/projects/term-render/src/Framebuffer.cpp" "CMakeFiles/term-render.dir/src/Framebuffer.cpp.o" "gcc" "CMakeFiles/term-render.dir/src/Framebuffer.cpp.o.d"
+  "/home/ashton/projects/term-render/src/Renderer.cpp" "CMakeFiles/term-render.dir/src/Renderer.cpp.o" "gcc" "CMakeFiles/term-render.dir/src/Renderer.cpp.o.d"
   "/home/ashton/projects/term-render/src/main.cpp" "CMakeFiles/term-render.dir/src/main.cpp.o" "gcc" "CMakeFiles/term-render.dir/src/main.cpp.o.d"
   )
 

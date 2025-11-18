@@ -129,6 +129,54 @@ term-render/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/term-render.dir/build.make CMakeFiles/term-render.dir/build
 .PHONY : term-render/fast
 
+src/Framebuffer.o: src/Framebuffer.cpp.o
+.PHONY : src/Framebuffer.o
+
+# target to build an object file
+src/Framebuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/term-render.dir/build.make CMakeFiles/term-render.dir/src/Framebuffer.cpp.o
+.PHONY : src/Framebuffer.cpp.o
+
+src/Framebuffer.i: src/Framebuffer.cpp.i
+.PHONY : src/Framebuffer.i
+
+# target to preprocess a source file
+src/Framebuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/term-render.dir/build.make CMakeFiles/term-render.dir/src/Framebuffer.cpp.i
+.PHONY : src/Framebuffer.cpp.i
+
+src/Framebuffer.s: src/Framebuffer.cpp.s
+.PHONY : src/Framebuffer.s
+
+# target to generate assembly for a file
+src/Framebuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/term-render.dir/build.make CMakeFiles/term-render.dir/src/Framebuffer.cpp.s
+.PHONY : src/Framebuffer.cpp.s
+
+src/Renderer.o: src/Renderer.cpp.o
+.PHONY : src/Renderer.o
+
+# target to build an object file
+src/Renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/term-render.dir/build.make CMakeFiles/term-render.dir/src/Renderer.cpp.o
+.PHONY : src/Renderer.cpp.o
+
+src/Renderer.i: src/Renderer.cpp.i
+.PHONY : src/Renderer.i
+
+# target to preprocess a source file
+src/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/term-render.dir/build.make CMakeFiles/term-render.dir/src/Renderer.cpp.i
+.PHONY : src/Renderer.cpp.i
+
+src/Renderer.s: src/Renderer.cpp.s
+.PHONY : src/Renderer.s
+
+# target to generate assembly for a file
+src/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/term-render.dir/build.make CMakeFiles/term-render.dir/src/Renderer.cpp.s
+.PHONY : src/Renderer.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +210,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... term-render"
+	@echo "... src/Framebuffer.o"
+	@echo "... src/Framebuffer.i"
+	@echo "... src/Framebuffer.s"
+	@echo "... src/Renderer.o"
+	@echo "... src/Renderer.i"
+	@echo "... src/Renderer.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

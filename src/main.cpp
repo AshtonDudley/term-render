@@ -1,11 +1,9 @@
 #include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <csignal>
-#include <chrono>
-#include <thread>
 
 #include "Framebuffer.hpp"
+#include "Renderer.hpp"
 
 int nScreenWidth = 32;
 int nScreenHeight = 16;
@@ -17,13 +15,6 @@ void signalHandler(int signum) {
     g_run = 0;
 }
 
-void renderLoop(Framebuffer& fb) {
-    std::cout << "\x1b[H"; // move cursor 
-    fb.render(std::cout); 
-    std::cout.flush();
-    std::this_thread::sleep_for(std::chrono::milliseconds(16));
-    return;
-}
 
 int main() {
     signal(SIGINT, signalHandler);

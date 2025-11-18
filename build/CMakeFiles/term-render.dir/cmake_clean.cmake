@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/term-render.dir/src/Framebuffer.cpp.o"
+  "CMakeFiles/term-render.dir/src/Framebuffer.cpp.o.d"
+  "CMakeFiles/term-render.dir/src/Renderer.cpp.o"
+  "CMakeFiles/term-render.dir/src/Renderer.cpp.o.d"
   "CMakeFiles/term-render.dir/src/main.cpp.o"
   "CMakeFiles/term-render.dir/src/main.cpp.o.d"
   "term-render"
