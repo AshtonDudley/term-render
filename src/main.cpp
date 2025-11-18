@@ -31,8 +31,7 @@ class Framebuffer {
         return;
     }
     void setIndex(int index, char ch) {
-        if (index < 0 || index > width * height) { return; } 
-        buffer[index] = ch;
+        buffer[index % (width * height)] = ch;
     }
 
     char get(int x, int y) {
@@ -103,9 +102,15 @@ int main() {
         int x = index % fb.getWidth();
         int y = index / fb.getWidth();
 
-        fb.set(x, y, '#');
-        fb.set(x-1, y, ' ');
+        // fb.set(x, y, '#');
+        //fb.set(x-1, y, ' ');
+        
+        fb.setIndex(index, '#');
+
         renderLoop(fb);
+        
+        fb.setIndex(index, ' ');
+        
         frame++;
     }
     std::cout << "\x1b[?25h\n";
