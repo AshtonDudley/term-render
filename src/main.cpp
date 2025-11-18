@@ -26,17 +26,17 @@ class Framebuffer {
     }
 
     void set(int x, int y, char ch) {
-        if (x < 0 || x >= width || y < 0 || y >= height) {
-            return;
-        }
+        if (x < 0 || x >= width || y < 0 || y >= height) { return; }
         buffer[y * width + x] = ch;
         return;
     }
+    void setIndex(int index, char ch) {
+        if (index < 0 || index > width * height) { return; } 
+        buffer[index] = ch;
+    }
 
     char get(int x, int y) {
-        if (x < 0 || x >= width || y < 0 || y >= height) {
-            return ' ';
-        }
+        if (x < 0 || x >= width || y < 0 || y >= height) { return ' '; }
         return buffer[y * width + x];
     }
 
@@ -73,6 +73,14 @@ void signalHandler(int signum) {
     g_run = 0;
 }
 
+void renderLoop(Framebuffer& fb) {
+    std::cout << "\x1b[H"; // move cursor 
+    fb.render(std::cout); 
+    std::cout.flush();
+    std::this_thread::sleep_for(std::chrono::milliseconds(16));
+    return;
+}
+
 int main() {
     signal(SIGINT, signalHandler);
     std::cout << "Program running. Press Ctrl+C to interrupt." << std::endl;
@@ -82,22 +90,25 @@ int main() {
     fb.fill('_');
     fb.set(0, 0, '#');
     fb.set(nScreenWidth-1, nScreenHeight-1, '#');
-    fb.render(std::cout);
 
-    
+    std::system("clear");
+    std::cout << "\x1b[?25l";
+
     // Render loop:
     int frame = 0;
     
     while (g_run) {
-        std::system("clear");
-        fb.render(std::cout); 
-        
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+
+        int index = frame % (fb.getWidth() * fb.getHeight());
+        int x = index % fb.getWidth();
+        int y = index / fb.getWidth();
+
+        fb.set(x, y, '#');
+        fb.set(x-1, y, ' ');
+        renderLoop(fb);
         frame++;
     }
-
-
-
+    std::cout << "\x1b[?25h\n";
     return 0;
 }
 
