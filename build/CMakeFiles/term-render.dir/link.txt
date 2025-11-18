@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/term-render.dir/src/main.cpp.o -o term-render 
