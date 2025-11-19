@@ -21,6 +21,7 @@ int main() {
     std::cout << "Program running. Press Ctrl+C to interrupt." << std::endl;
 
     Framebuffer fb(nScreenWidth, nScreenHeight);
+    Renderer render(fb);
 
     fb.fill('_');
     fb.set(0, 0, '#');
@@ -33,14 +34,13 @@ int main() {
     int frame = 0;
     
     while (g_run) {
-
         int index = frame % (fb.getWidth() * fb.getHeight());
         int x = index % fb.getWidth();
         int y = index / fb.getWidth();
 
         fb.setIndex(index, '#');
-
-        renderLoop(fb);
+        
+        render.renderFrame();
         
         fb.setIndex(index, ' ');
         

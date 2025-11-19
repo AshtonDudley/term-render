@@ -9,7 +9,7 @@ int testDrawPixel() {
     Renderer render(fb);
     
     std::cout << "Pixel Test:" << std::endl << std::endl; 
-    renderLoop(fb);
+    render.renderFrame();
     render.drawPixel(1, 1,'*');
 
     return 0;
@@ -21,7 +21,7 @@ int testDrawLine() {
     Renderer render(fb);
     
     std::cout << "Line Test:" << std::endl << std::endl; 
-    renderLoop(fb);
+    render.renderFrame();
     Vec2 A{1.0f, 1.0f};
     Vec2 B{4.0f, 4.0f};
     render.drawLine(A, B,'*');
