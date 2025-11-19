@@ -33,8 +33,8 @@ int testDrawLine() {
     
     Vec2 TL = Origin;
     Vec2 BR{(float)gWidth-1, (float)gHeight-1};
-    Vec2 BL{(float)gWidth-1, 0};
-    Vec2 TR{0, (float)gWidth-1}; 
+    Vec2 BL{0, (float)gHeight-1};
+    Vec2 TR{(float)gWidth-1, 0}; 
 
     render.drawLine(A, B,'*');
 

@@ -37,16 +37,24 @@ void Renderer::drawPixel(int x, int y, char ch) {
  */
 
 void Renderer::drawLine(Vec2 a, Vec2 b, char ch) {
+    if (a.x > b.x) std::swap(a, b);
+
     float dx = b.x - a.x;
     float dy = b.y - a.y; 
+    
+    if (dx == 0) {   // vertical line
+        if (a.y > b.y) std::swap(a, b);
+        for (int y = a.y; y <= b.y; y++)
+            framebuffer.set(a.x, y, ch);
+        return;
+    }
+
     float m = dy / dx;
 
-    for (int x = 0; x <= (b.x - a.x); x++) {
-        float y = (m * (x - a.x)) + a.y;
+    for (int x = (int)a.x; x <= (int)b.x; x++) {
+        float y = m * (x - a.x) + a.y;
         framebuffer.set(x, y, ch);
     }
-    
-
     return;
 }
 
