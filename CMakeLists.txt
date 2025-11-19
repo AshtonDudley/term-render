@@ -20,7 +20,6 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/Framebuffer.cpp
     src/Renderer.cpp
-    src/Math.cpp
 )
 
 # If you have tests, enable testing and add them
