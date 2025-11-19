@@ -10,5 +10,6 @@ int main() {
 
     Vec2 C = A + B;
 
+    std::cout << C << std::endl;
 
 }

@@ -1,37 +1,34 @@
 #pragma once
 
-#include <cmath>
+#include <ostream>
 
-// 2D Vector Functions 
+class Vec2 {
+public:
+    float x;
+    float y;
 
-struct Vec2 {
-    float x{};
-    float y{};
-
-    Vec2() = default;
+    Vec2() : x(0.0f), y(0.0f) {}
     Vec2(float x_, float y_) : x(x_), y(y_) {}
+
+    Vec2 operator+(const Vec2& other) const {
+        return Vec2(x + other.x, y + other.y);
+    }
+
+    Vec2 operator-(const Vec2& other) const {
+        return Vec2(x - other.x, y - other.y);
+    }
+
+    Vec2 operator*(float s) const {
+        return Vec2(x * s, y * s);
+    }
+
+    // Scalar * Vec2 as free function
+    friend Vec2 operator*(float s, const Vec2& v) {
+        return Vec2(v.x * s, v.y * s);
+    }
 };
 
-inline Vec2 operator+(const Vec2& a, const Vec2& b) {
-    return {a.x + b.x, a.y + b.y};
+inline std::ostream& operator<<(std::ostream& os, const Vec2& v) {
+    os << "(" << v.x << "," << v.y << ")";
+    return os;
 }
-
-inline Vec2 operator-(const Vec2& a, const Vec2& b) {
-    return {a.x - b.x, a.y - b.y};
-}
-
-inline Vec2 operator*(const Vec2& v, float s) {
-    return {v.x * s, v.y * s};
-}
-
-inline Vec2 operator*(float s, const Vec2& v) {
-    return v * s;
-}
-
-// 3D Vector Functions
-
-struct Vec3 {
-    float x, y, z;
-};
-
-
