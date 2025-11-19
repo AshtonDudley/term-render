@@ -1,10 +1,16 @@
 # tests/CMakeLists.txt
-# For example using a test executable
-add_executable(${PROJECT_NAME}_tests
-    # list your test .cpp files here, e.g. tests/test_main.cpp
+
+# Create a test executable for your vector / math code
+add_executable(vector_tests
+    test_vector.cpp                         # this file will live in the tests/ folder
+    ${PROJECT_SOURCE_DIR}/src/Math.cpp      # reuse your real Math implementation
 )
 
-target_link_libraries(${PROJECT_NAME}_tests PRIVATE ${PROJECT_NAME})
+# So it can find "Math.hpp"
+target_include_directories(vector_tests PRIVATE
+    ${PROJECT_SOURCE_DIR}/src
+)
 
-add_test(NAME run_unit_tests COMMAND ${PROJECT_NAME}_tests)
+# Register the test with CTest
+add_test(NAME vector_tests COMMAND vector_tests)
 

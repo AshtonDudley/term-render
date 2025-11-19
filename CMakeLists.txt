@@ -24,6 +24,6 @@ add_executable(${PROJECT_NAME}
 )
 
 # If you have tests, enable testing and add them
-# enable_testing()
-# add_subdirectory(tests)
+enable_testing()
+add_subdirectory(tests)
 

@@ -13,5 +13,5 @@ public:
     void drawLine(Vec2 a, Vec2 b, char ch);
 
 private:
-
+    Framebuffer framebuffer;
 };

@@ -38,7 +38,6 @@ int main() {
         int x = index % fb.getWidth();
         int y = index / fb.getWidth();
 
-        
         fb.setIndex(index, '#');
 
         renderLoop(fb);
