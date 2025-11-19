@@ -13,3 +13,11 @@ void renderLoop(Framebuffer& fb) {
     return;
 }
 
+
+void Renderer::drawPixel(int x, int y, char ch) {
+    return;
+}
+void Renderer::drawLine(Vec2 a, Vec2 b, char ch) {
+    return;
+}
+

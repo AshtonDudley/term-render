@@ -38,8 +38,6 @@ int main() {
         int x = index % fb.getWidth();
         int y = index / fb.getWidth();
 
-        // fb.set(x, y, '#');
-        //fb.set(x-1, y, ' ');
         
         fb.setIndex(index, '#');
 

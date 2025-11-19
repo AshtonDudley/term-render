@@ -32,6 +32,6 @@ inline Vec2 operator*(float s, const Vec2& v) {
 
 struct Vec3 {
     float x, y, z;
-}
+};
 
 
