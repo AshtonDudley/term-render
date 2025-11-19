@@ -12,6 +12,7 @@ public:
     void drawPixel(int x, int y, char ch);
     void drawLine(Vec2 a, Vec2 b, char ch);
     void renderFrame();
+    void printFrame(std::ostream& os);
 
 private:
     Framebuffer& framebuffer;
