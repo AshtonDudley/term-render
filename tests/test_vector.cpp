@@ -1,30 +1,49 @@
 #include <iostream>
+#include <ostream>
 #include "Math.hpp"
 #include "Renderer.hpp"
 #include "Framebuffer.hpp"
 
+int gWidth = 32;
+int gHeight = 16;
 
 int testDrawPixel() {
-    Framebuffer fb(32, 16, '#');
+    Framebuffer fb(16, 8, '#');
     Renderer render(fb);
     
     std::cout << "Pixel Test:" << std::endl << std::endl; 
     render.drawPixel(1, 1,'*');
-    render.printFrame(std::cout);
+    // render.printFrame(std::cout);
 
     return 0;
 } 
 
 
 int testDrawLine() {
-    Framebuffer fb(32, 16, '#');
+    Framebuffer fb(gWidth, gHeight, '#');
     Renderer render(fb);
-    
+   
+    std::ostream &os = std::cout;
+
     std::cout << "Line Test:" << std::endl << std::endl; 
-    render.printFrame(std::cout);
     Vec2 A{1.0f, 1.0f};
-    Vec2 B{4.0f, 4.0f};
+    Vec2 B{4.0f, 5.0f};
+    
+    Vec2 Origin{0.0f, 0.0f};
+    
+    Vec2 TL = Origin;
+    Vec2 BR{(float)gWidth-1, (float)gHeight-1};
+    Vec2 BL{(float)gWidth-1, 0};
+    Vec2 TR{0, (float)gWidth-1}; 
+
     render.drawLine(A, B,'*');
+
+    render.drawLine(TL, BL,'X');
+    render.drawLine(BL, BR,'X');
+    render.drawLine(BR, TR,'X');
+    render.drawLine(TR, TL,'X');
+
+    render.printFrame(os);
 
     return 0;
 } 
