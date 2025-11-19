@@ -4,12 +4,27 @@
 #include "Framebuffer.hpp"
 
 
+int testDrawPixel() {
+    Framebuffer fb(32, 16, '#');
+    Renderer render(fb);
+    
+    std::cout << "Pixel Test:" << std::endl << std::endl; 
+    renderLoop(fb);
+    render.drawPixel(1, 1,'*');
+
+    return 0;
+} 
+
+
 int testDrawLine() {
     Framebuffer fb(32, 16, '#');
     Renderer render(fb);
     
     std::cout << "Line Test:" << std::endl << std::endl; 
     renderLoop(fb);
+    Vec2 A{1.0f, 1.0f};
+    Vec2 B{4.0f, 4.0f};
+    render.drawLine(A, B,'*');
 
     return 0;
 } 
@@ -40,9 +55,12 @@ int test2DVectorMath() {
 int main() {
     int r = test2DVectorMath();
     std::cout << "test2DVectorMath" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";
-    
+
     r = testDrawLine();
     std::cout << "testDrawLine" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";   
 
+    r = testDrawPixel();
+    std::cout << "testDrawPixel" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";   
+    
     return 0;
 }
