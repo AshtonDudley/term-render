@@ -19,9 +19,6 @@ Renderer::Renderer(Framebuffer& fb)
 
 // line is dv_a^b
 void Renderer::drawPixel(int x, int y, char ch) {
-
-    
-
     return;
 }
 void Renderer::drawLine(Vec2 a, Vec2 b, char ch) {

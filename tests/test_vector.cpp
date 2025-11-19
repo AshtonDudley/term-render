@@ -1,10 +1,22 @@
 #include <iostream>
 #include "Math.hpp"
+#include "Renderer.hpp"
+#include "Framebuffer.hpp"
 
 
-int main() {
-    std::cout << "Starting Vector Test" << std::endl;
+int testDrawLine() {
+    Framebuffer fb(32, 16, '#');
+    Renderer render(fb);
     
+    std::cout << "Line Test:" << std::endl << std::endl; 
+    renderLoop(fb);
+
+    return 0;
+} 
+
+int test2DVectorMath() {
+
+    std::cout << "Starting Vector Test" << std::endl;
     Vec2 A{1.0f, 2.0f};
     Vec2 B{1.0f, 2.0f};
 
@@ -20,6 +32,17 @@ int main() {
     std::cout << "A - B: " << D << std::endl;
     std::cout << "2 * A: " << E << std::endl;
     std::cout << "A * 2: " << F << std::endl;
+
+    return 0;
+}
+
+
+int main() {
+    int r = test2DVectorMath();
+    std::cout << "test2DVectorMath" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";
+    
+    r = testDrawLine();
+    std::cout << "testDrawLine" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";   
 
     return 0;
 }
