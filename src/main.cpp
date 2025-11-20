@@ -34,16 +34,8 @@ int main() {
     int frame = 0;
     
     while (g_run) {
-        int index = frame % (fb.getWidth() * fb.getHeight());
-        int x = index % fb.getWidth();
-        int y = index / fb.getWidth();
-
-        fb.setIndex(index, '#');
         
         render.renderFrame();
-        
-        fb.setIndex(index, ' ');
-        
         frame++;
     }
     std::cout << "\x1b[?25h\n";

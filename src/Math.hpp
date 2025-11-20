@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ostream>
+#include <cmath>
 
 class Vec2 {
 public:
@@ -48,3 +49,11 @@ inline std::ostream& operator<<(std::ostream& os, const Vec3& v) {
     os << "(" << v.x << "," << "v.y" << "," << v.z << ")";
     return os;
 }
+
+inline Vec2 rotate2D(const Vec2& p, float angleRad) {
+    float c = std::cos(angleRad);
+    float s = std::sin(angleRad);
+    return { p.x * c - p.y * s,
+             p.x * s + p.y * c };
+}
+
