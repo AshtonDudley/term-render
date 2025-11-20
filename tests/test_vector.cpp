@@ -70,16 +70,101 @@ int test2DVectorMath() {
     return 0;
 }
 
+int testVec3() {
+    
+    Vec3 A{0.0f, 0.0f, 0.0f};
+    Vec3 B{0.0f, 0.0f, 0.0f};
+
+    std::cout << A << std::endl;
+    std::cout << B << std::endl;
+    
+    return 0;
+}
+
+int testDrawCube() {
+    Framebuffer fb(gWidth, gHeight, '#');
+    Renderer render(fb);
+   
+    std::ostream &os = std::cout;
+    os << "Drawing Cube Test:" << std::endl << std::endl;
+
+    float cubeHeight = 6;
+    float cubeWidth = 12;
+    Vec2  cubeOrigin( 5.0f, 5.0f);
+
+    float cubeLenth = 4;
+
+
+    // Most basic square
+    Vec2 A{0,0};
+    Vec2 B{cubeWidth,0};
+    Vec2 C{0,cubeHeight};
+    Vec2 D{cubeWidth, cubeHeight};
+
+    Vec2 E{5.0f, -3.0f};
+
+
+    A = A + cubeOrigin;
+    B = B + cubeOrigin;
+    C = C + cubeOrigin; 
+    D = D + cubeOrigin;
+
+    render.drawSquare2D(A, B, C, D, 'x');
+    render.drawSquare2D(A, B, A+E, B+E, 'x');
+    render.drawSquare2D(B, D, B+E, D+E, 'x'); 
+
+    //render.drawTriangle2D(A, B, E, 'x');
+
+    render.printFrame(os);
+
+    return 0;
+}
+
+int testDrawTriangle() {
+    Framebuffer fb(gWidth, gHeight, '#');
+    Renderer render(fb);
+   
+    std::ostream &os = std::cout;
+    os << "Drawing Tiangle Test:" << std::endl << std::endl;
+    
+    float width = 16.0f;
+    float height = 8.0f;
+
+    Vec2 triangleOrigin{5.0f, 3.0f};
+
+    Vec2 A = {0, 0};
+    Vec2 B = {width, 0};
+    Vec2 C = {width/2, height};
+
+    A = A + triangleOrigin;
+    B = B + triangleOrigin;
+    C = C + triangleOrigin;
+
+    render.drawTriangle2D(A, B, C, 'X');
+   
+    render.printFrame(os);
+    return 0;
+}
+
 
 int main() {
     int r = test2DVectorMath();
     std::cout << "test2DVectorMath" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";
+
+    r = testVec3();
+    std::cout << "testVec3" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";   
 
     r = testDrawLine();
     std::cout << "testDrawLine" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";   
 
     r = testDrawPixel();
     std::cout << "testDrawPixel" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";   
+   
+    r = testDrawCube();
+    std::cout << "testDrawCube" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";   
     
-    return 0;
+    r = testDrawTriangle();
+    std::cout << "testDrawTriangle" << ": " << (r == 0 ? "PASS" : "FAIL") << "\n";   
+    
+    return 0; 
 }

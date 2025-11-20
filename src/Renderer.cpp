@@ -25,6 +25,24 @@ void Renderer::drawPixel(int x, int y, char ch) {
 
     return;
 }
+
+void Renderer::drawTriangle2D(Vec2 A, Vec2 B, Vec2 C, char ch) {
+    drawLine(A, B, ch);
+    drawLine(A, C, ch);
+    drawLine(B, C, ch);
+    return;
+}
+
+
+// A: top left, B: top right, C: bottom left, D: bottom right
+void Renderer::drawSquare2D(Vec2 A, Vec2 B, Vec2 C, Vec2 D, char ch) {
+   drawLine(A, B, ch);
+   drawLine(B, D, ch);
+   drawLine(D, C, ch);
+   drawLine(C, A, ch);
+}
+
+
 /*
     SIMPLE METHOD:
     where, x2 > x1 

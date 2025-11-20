@@ -28,7 +28,23 @@ public:
     }
 };
 
+class Vec3 {
+public:
+    float x;
+    float y;
+    float z;
+
+    Vec3() : x(0.0f), y(0.0f), z(0.f) {}
+    Vec3(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
+};
+
+
 inline std::ostream& operator<<(std::ostream& os, const Vec2& v) {
     os << "(" << v.x << "," << v.y << ")";
+    return os;
+}
+
+inline std::ostream& operator<<(std::ostream& os, const Vec3& v) {
+    os << "(" << v.x << "," << "v.y" << "," << v.z << ")";
     return os;
 }
